@@ -7,22 +7,37 @@ public class CameraController : MonoBehaviour {
 	public GameObject player;
 
 	private Vector3 offset;
-	private bool isRotating;
+	public bool isRotating;
 	private bool rotateRight;
 	private Vector3 newRotatePos;
 	private float rotateSpeed = 1;
 	private float rotationTime;
+    public int currentRot;
 	
 	private void Start() {
 		offset = transform.position - player.transform.position;
 	}
 
 	private void Update() {
-		if (Input.GetKeyDown(KeyCode.E) && !isRotating)
-			StartCoroutine(RotateMe(Vector3.up * -90f, .5f));
+        if (Input.GetKey(KeyCode.E) && !isRotating)
+        {
+            StartCoroutine(RotateMe(Vector3.up * -90f, .5f));
+            currentRot++;
+            if (currentRot > 3)
+            {
+                currentRot = 0;
+            }
+        }
 
-		if (Input.GetKeyDown(KeyCode.Q) && !isRotating)
-			StartCoroutine(RotateMe(Vector3.up * 90f, .5f));
+        if (Input.GetKey(KeyCode.Q) && !isRotating)
+        {
+            StartCoroutine(RotateMe(Vector3.up * 90f, .5f));
+            currentRot--;
+            if (currentRot < 0)
+            {
+                currentRot = 3;
+            }
+        }
 	}
 
 	private IEnumerator RotateMe(Vector3 byAngles, float inTime) {
