@@ -21,9 +21,7 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
-        GameObject o = GameObject.Find("BulletOrigin");
-//        GameObject clone = Instantiate(lightPrefab, o.transform.position, this.transform.rotation);
-        GameObject clone = Instantiate(lightPrefab, bulletOrigin.transform.position, this.transform.rotation);
+        GameObject clone = Instantiate(lightPrefab, bulletOrigin.transform.position, bulletOrigin.transform.rotation);
 
         if(shouldExpand)
             StartCoroutine(Expand(clone));
@@ -32,13 +30,12 @@ public class Gun : MonoBehaviour {
     public IEnumerator Expand(GameObject light)
     {
         float size = startSize;
-        for(var t=0f; t < 1; t += Time.deltaTime/time)
+        for (var t=0f; t < 1; t += Time.deltaTime/time)
         {
             size = Mathf.Lerp(startSize, endSize, t);
-            //This is temporary:
-            light.transform.localScale = new Vector3(size, size, size);
-            //
+            light.GetComponent<Light>().range = size;
             yield return null;
         }
+        Destroy(light);
     }
 }
