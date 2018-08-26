@@ -51,7 +51,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.3915094, b: 0.75509405, a: 1}
   m_Intensity: 4
   m_Range: 3
   m_SpotAngle: 30
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467f8b29f31d46d45bc806d98c06e346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 25
   damage: 0
 --- !u!136 &136723344554653026
 CapsuleCollider:

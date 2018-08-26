@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 
 		if (Physics.Raycast(ray, out hit, 1000)) {
 			transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+			transform.localEulerAngles = new Vector3(-90, transform.localEulerAngles.y, transform.localEulerAngles.z);
 		}
 	}
 
@@ -42,6 +43,11 @@ public class PlayerController : MonoBehaviour {
 	private void Move() {
 		Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
 		Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
+		
+//		Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
+//
+//		if (heading != Vector3.zero)
+//			transform.forward = heading;	
 		
 		transform.position += rightMovement;
 		transform.position += upMovement;
