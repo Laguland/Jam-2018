@@ -7,14 +7,15 @@ public class LightBullet : MonoBehaviour {
     public float speed;
     public float damage;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private float counter;
 	
 	// Update is called once per frame
 	void Update () {
         this.transform.position += this.transform.forward * speed * Time.deltaTime;
+	    counter += Time.deltaTime;
+	    
+	    if (counter >= 3f)
+	        Destroy(gameObject);
 	}
 
     // collision check
@@ -24,7 +25,7 @@ public class LightBullet : MonoBehaviour {
         {
             Debug.Log("HIT ENEMY");
             EnemyHit(col.gameObject);
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 
