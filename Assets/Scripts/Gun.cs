@@ -23,7 +23,6 @@ public class Gun : MonoBehaviour {
     {
         GameObject o = GameObject.Find("BulletOrigin");
         GameObject clone = Instantiate(lightPrefab, o.transform.position, this.transform.rotation);
-//        GameObject clone = Instantiate(lightPrefab, bulletOrigin.transform.position, this.transform.rotation);
 
         if(shouldExpand)
             StartCoroutine(Expand(clone));
