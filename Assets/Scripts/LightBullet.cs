@@ -6,16 +6,10 @@ public class LightBullet : MonoBehaviour {
 
     public float speed;
     public float damage;
-
-    private float counter;
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position += this.transform.forward * speed * Time.deltaTime;
-	    counter += Time.deltaTime;
-	    
-	    if (counter >= 3f)
-	        Destroy(gameObject);
+        this.transform.position += transform.rotation * Vector3.forward * speed * Time.deltaTime;
 	}
 
     // collision check
