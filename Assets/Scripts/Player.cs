@@ -7,6 +7,7 @@ using UnityEngine.Experimental.PlayerLoop;
 public class Player : Character {
 
     public Light playerLight;
+    public bool isHoldingALightSource = false;
 
 	private bool first75;
 	private bool first50;
