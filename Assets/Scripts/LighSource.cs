@@ -22,9 +22,12 @@ public class LighSource : MonoBehaviour {
             Debug.Log("Light source trigerred");
             Player player = other.gameObject.GetComponent<Player>();
             
-            player.isHoldingALightSource = true;
-            Debug.Log(player.isHoldingALightSource);
-            Destroy(this.gameObject);
+            if(!player.isHoldingALightSource) // if not holding any light source 
+            {
+                player.isHoldingALightSource = true;
+                Debug.Log(player.isHoldingALightSource);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
