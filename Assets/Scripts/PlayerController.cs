@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour {
 	private void Update() {
 
 		LootAtMouse();
+		if (Input.GetKeyDown(KeyCode.Space)) {
+			GetComponent<Rigidbody>().AddForce(Vector3.up * 500f);
+		}
+		
 		if (Input.anyKey)
 			Move();
 	}

@@ -6,17 +6,15 @@ public class LightBullet : MonoBehaviour {
 
     public float speed;
     public float damage;
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         this.transform.position += transform.rotation * Vector3.forward * speed * Time.deltaTime;
-	}
+    }
 
     // collision check
-    void OnCollisionEnter(Collision col)
-    {
-        if(col.gameObject.CompareTag("Enemy"))
-        {
+    void OnCollisionEnter(Collision col) {
+        if (col.gameObject.CompareTag("Enemy")) {
             Debug.Log("HIT ENEMY");
             EnemyHit(col.gameObject);
             Destroy(gameObject);
@@ -24,8 +22,7 @@ public class LightBullet : MonoBehaviour {
     }
 
     // enemy hit logic
-    void EnemyHit(GameObject enemy)
-    {
+    void EnemyHit(GameObject enemy) {
         Destroy(enemy);
     }
 }

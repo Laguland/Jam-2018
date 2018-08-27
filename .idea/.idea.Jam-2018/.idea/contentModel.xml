@@ -300,8 +300,8 @@
           <e p="Gun.cs" t="Include" />
           <e p="LampLightCollision.cs" t="Include" />
           <e p="LampSwitchTrigger.cs" t="Include" />
-          <e p="LighSource.cs" t="Include" />
           <e p="LightBullet.cs" t="Include" />
+          <e p="LightSource.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
         </e>

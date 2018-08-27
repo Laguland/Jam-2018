@@ -2,17 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LighSource : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
+public class LightSource : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {

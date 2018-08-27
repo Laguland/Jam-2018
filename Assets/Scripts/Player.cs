@@ -15,7 +15,7 @@ public class Player : Character {
 
 	void OnCollisionEnter(Collision other) {
 		if (other.transform.tag == "Enemy") {
-			transform.GetComponent<Rigidbody>().AddForce(other.transform.forward * 10f, ForceMode.Impulse);
+//			transform.GetComponent<Rigidbody>().AddForce(other.transform.forward * 10f, ForceMode.Impulse);
 			
 			currentHealth -= 10f;
 
