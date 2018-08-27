@@ -1,51 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : Character
-{
+public class EnemyAI : Character {
 
-    GameObject player;
-    NavMeshAgent agent;
+	GameObject player;
+	NavMeshAgent agent;
 
-	// Use this for initialization
-	void Start ()
-    {
-        player = GameObject.FindGameObjectWithTag("Player");
-        agent = GetComponent<NavMeshAgent>();
-	}
+	private Animator anim;
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        agent.SetDestination(player.transform.position);
-        //MoveToPlayer();
+	
+	// Use this for initialization
+	void Start() {
+		player = GameObject.FindGameObjectWithTag("Player");
+		agent = GetComponent<NavMeshAgent>();
+		anim = GetComponent<Animator>();
 	}
 
-    // Find player direction
-    Vector3 DirectionToPlayer()
-    {
-        Vector3 playerPosition = player.transform.position;
-        Vector3 agentPosition = this.transform.position;
+	// Update is called once per frame
+	void Update() {
+		agent.SetDestination(player.transform.position);
+		//MoveToPlayer();
+	}
 
-        Vector3 playerDirection = playerPosition - agentPosition;
-        playerDirection.Normalize();
+	// Find player direction
+	Vector3 DirectionToPlayer() {
+		Vector3 playerPosition = player.transform.position;
+		Vector3 agentPosition = this.transform.position;
 
-        return playerDirection;
-    }
+		Vector3 playerDirection = playerPosition - agentPosition;
+		playerDirection.Normalize();
 
-    // Move To Player
-    void MoveToPlayer()
-    {
-        Vector3 moveVector = DirectionToPlayer() * moveSpeed * Time.deltaTime;
+		return playerDirection;
+	}
 
-        this.transform.LookAt(player.transform);
-        this.transform.position += moveVector;
-    }
+	// Move To Player
+	void MoveToPlayer() {
+		Vector3 moveVector = DirectionToPlayer() * moveSpeed * Time.deltaTime;
 
-    override public void Death()
-    {
+		this.transform.LookAt(player.transform);
+		this.transform.position += moveVector;
+	}
 
-    }
+	private void OnCollisionEnter(Collision other) {
+		if (other.transform.tag.Equals("Player")) {
+			anim.SetBool("attack", true);
+			anim.SetBool("walking", false);
+		}
+	}
+
+	private void OnCollisionStay(Collision other) {
+		if (other.transform.tag.Equals("Player")) {
+			if (!anim.GetBool("attack"))
+				anim.SetBool("attack", true);
+		}
+	}
+
+	private void OnCollisionExit(Collision other) {
+		if (other.transform.tag.Equals("Player"))
+			anim.SetBool("attack", false);
+			anim.SetBool("walking", true);
+	}
+
+	override public void Death() { }
 }

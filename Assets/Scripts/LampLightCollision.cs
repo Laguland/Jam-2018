@@ -4,65 +4,53 @@ using UnityEngine;
 
 public class LampLightCollision : MonoBehaviour {
 
-    public float lifeRegenPerSecond = 30f;
+    public float lifeRegenPerSecond = 5f;
     private bool startRegenLife = false;
-    private float timer = 0f;
     Player player;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        // if player within start life regen
-        if(startRegenLife)
-        {
-            // regen X amount of life every second starting from 0
-            if(timer%1 == 0)
-            {
-                // it is safe to add max life per second
-                if (player.currentHealth < player.baseHealth - lifeRegenPerSecond)
-                {
-                    player.currentHealth += lifeRegenPerSecond;
-                }
-                // add missing life but does not overextend it
-                else
-                {
-                    player.currentHealth = player.baseHealth;
-                }
-            }
-
-            // add frame time to timer
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            timer = 0;
-        }
-    }
+    private bool regen;
+    
+    // Update is called once per frame
 
     // Collision
     // Once lamp is glowing destroy all enemies withing collider range
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Enemy"))
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Enemy")) {
             Destroy(other.gameObject);
-
-        if (other.gameObject.CompareTag("Player"))
-        {
+        }
+        if (other.gameObject.CompareTag("Player")) {
             startRegenLife = true;
             Debug.Log("start life regen");
             player = other.GetComponent<Player>();
+            StartCoroutine("GenerateHealth");
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.CompareTag("Player")) {
+            if (regen)
+                StartCoroutine("GenerateHealth");
+        }
+    }
+
+    private IEnumerator GenerateHealth() {
+        if (startRegenLife) {
+            regen = false;
+            // it is safe to add max life per second
+            if (player.currentHealth < player.baseHealth - lifeRegenPerSecond) {
+                player.currentHealth += lifeRegenPerSecond;
+            }
+            // add missing life but does not overextend it
+            else {
+                player.currentHealth = player.baseHealth;
+            }
+            yield return new WaitForSeconds(2f);
+        }
+        regen = true;
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.CompareTag("Player")) {
             Debug.Log("stop life regen");
             startRegenLife = false;
         }
