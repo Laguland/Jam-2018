@@ -4,7 +4,9 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
 
-	protected float baseHealth = 100f;
-	protected float currentHealth = 100f;
+	public float baseHealth = 100f;
+	public float currentHealth;
 	protected float moveSpeed;
+
+    public abstract void Death();
 }

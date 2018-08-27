@@ -35,7 +35,7 @@ public class LampSwitchTrigger : MonoBehaviour {
                 navMeshObstacle.enabled = true;
                 pointLight.SetActive(true);
                 lampLightTrigger.SetActive(true);
-                player.isHoldingALightSource = false; //light source used
+                player.isHoldingALightSource = false; // light source used
             }
         }
     }
