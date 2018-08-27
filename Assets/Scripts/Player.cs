@@ -45,4 +45,50 @@ public class Player : Character {
 			}
 		}
 	}
+    // Use this for initialization
+    void Start()
+    {
+        currentHealth = baseHealth;
+    }
+
+    void Update()
+    {
+        UpdateColor();
+    }
+
+    void UpdateColor()
+    {
+        if (currentHealth <= 0)
+        {
+            print("Player is dead.");
+            Death();
+        }
+        else
+        {
+            Color32 c = playerLight.color;
+            if (currentHealth <= 75)
+            {
+                playerLight.range = 7.5f;
+                playerLight.color = new Color32(224, 224, 115, 255);
+            }
+            if (currentHealth <= 50)
+            {
+                playerLight.range = 5f;
+                playerLight.color = new Color32(224, 184, 115, 255);
+            }
+            if (currentHealth <= 25)
+            {
+                playerLight.range = 2.5f;
+                playerLight.color = new Color32(224, 118, 115, 255);
+            }
+            //				playerLight.color = new Color32();
+        }
+    }
+
+    override public void Death()
+    {
+
+    }
 }
+
+

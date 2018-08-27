@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour {
+public class EnemyAI : Character
+{
 
     GameObject player;
-    public float moveSpeed;
     NavMeshAgent agent;
 
 	// Use this for initialization
@@ -42,5 +42,10 @@ public class EnemyAI : MonoBehaviour {
 
         this.transform.LookAt(player.transform);
         this.transform.position += moveVector;
+    }
+
+    override public void Death()
+    {
+
     }
 }
