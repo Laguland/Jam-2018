@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20eef4ad-0aa5-453e-8710-0b62cf064274" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/ROCK1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ROCK2.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ROCK3.fbx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Jam-2018/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Jam-2018/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Character.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyAI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gun.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gun.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LampLightCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LampLightCollision.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LampSwitchTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LampSwitchTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,10 +13,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlayerController.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlayerController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="-175">
               <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
               <folding>
                 <marker date="1535388530828" expanded="false" signature="7:79" ph="..." />
@@ -119,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Character.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Character.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Character.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
               <folding>
                 <marker date="1535389084249" expanded="false" signature="6:78" ph="..." />
                 <marker date="1535389084249" expanded="true" signature="128:257" ph="{...}" />
@@ -290,12 +280,12 @@
       <workItem from="1535294339885" duration="1089000" />
       <workItem from="1535296482799" duration="2581000" />
       <workItem from="1535314692743" duration="680000" />
-      <workItem from="1535384297740" duration="4268000" />
+      <workItem from="1535384297740" duration="4862000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12940000" />
+    <option name="totallyTimeSpent" value="13534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -308,7 +298,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Errors In Solution" order="3" />
@@ -913,25 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
-          <folding>
-            <marker date="1535388530828" expanded="false" signature="7:79" ph="..." />
-            <marker date="1535388530828" expanded="true" signature="127:1558" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="217:382" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="407:566" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="466:529" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="596:925" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="723:922" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="956:1121" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="1144:1556" ph="{...}" />
-            <marker date="1535388530828" expanded="true" signature="1336:1475" ph="/* Vector3 heading = Vector3.Normalize(rightMovement + upMovement); ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Player.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -998,10 +968,29 @@
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Character.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <marker date="1535389084249" expanded="false" signature="6:78" ph="..." />
             <marker date="1535389084249" expanded="true" signature="128:257" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="22" column="61" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+          <folding>
+            <marker date="1535388530828" expanded="false" signature="7:79" ph="..." />
+            <marker date="1535388530828" expanded="true" signature="127:1558" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="217:382" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="407:566" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="466:529" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="596:925" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="723:922" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="956:1121" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="1144:1556" ph="{...}" />
+            <marker date="1535388530828" expanded="true" signature="1336:1475" ph="/* Vector3 heading = Vector3.Normalize(rightMovement + upMovement); ... */" />
           </folding>
         </state>
       </provider>
