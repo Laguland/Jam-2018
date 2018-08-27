@@ -15,7 +15,7 @@ public class Player : Character {
 
 	void OnCollisionEnter(Collision other) {
 		if (other.transform.tag == "Enemy") {
-			transform.GetComponent<Rigidbody>().AddForce(other.transform.forward * 12.5f, ForceMode.Impulse);
+			transform.GetComponent<Rigidbody>().AddForce(other.transform.forward * 10f, ForceMode.Impulse);
 			
 			currentHealth -= 10f;
 
@@ -42,7 +42,6 @@ public class Player : Character {
 					playerLight.color = new Color32(224, 118, 115, 255);
 					first25 = true;
 				}
-//				playerLight.color = new Color32();
 			}
 		}
 	}
