@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33449180067218052}
   - component: {fileID: 23256850438867500}
   - component: {fileID: 135983416100619828}
-  - component: {fileID: 114868424558386678}
+  - component: {fileID: 114905690192485046}
   m_Layer: 0
   m_Name: LightSource
   m_TagString: LightSource
@@ -36,8 +36,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873462045337396}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2132803, y: 0.5, z: 17.993109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 03dbfa876c1981349a18c217be245f56, type: 2}
+  - {fileID: 2100000, guid: b4125f49a197e1e4cb031ac5564a5754, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +85,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873462045337396}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114868424558386678
+--- !u!114 &114905690192485046
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1873462045337396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f750ad72b1511714cb0dae8af560f07b, type: 3}
+  m_Script: {fileID: 11500000, guid: bdf6db480c4330146b0cdfa2784dfcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135983416100619828
