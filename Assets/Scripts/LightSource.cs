@@ -15,6 +15,7 @@ public class LightSource : MonoBehaviour {
             if(!player.isHoldingALightSource) // if not holding any light source 
             {
                 player.isHoldingALightSource = true;
+                player.lightColor = ColorUtility.ToHtmlStringRGBA(GetComponent<MeshRenderer>().material.color);                
                 Debug.Log(player.isHoldingALightSource);
                 Destroy(this.gameObject);
             }

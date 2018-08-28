@@ -8,6 +8,7 @@ public class Player : Character {
 
 	public Light playerLight;
 	public bool isHoldingALightSource;
+	public string lightColor;
 
 	private void OnCollisionEnter(Collision other) {
 		if (other.transform.tag == "Enemy") {
