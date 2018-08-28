@@ -14,7 +14,7 @@ public class LampLightCollision : MonoBehaviour {
 
     // Collision
     // Once lamp is glowing destroy all enemies withing collider range
-    void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Enemy")) {
             Destroy(other.gameObject);
         }
