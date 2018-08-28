@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed = 4f;
-
+	public bool canMove = true;
+	
 	private Vector3 forward, right;
 
 	private void Start() {
@@ -19,11 +20,8 @@ public class PlayerController : MonoBehaviour {
 	private void Update() {
 
 		LootAtMouse();
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			GetComponent<Rigidbody>().AddForce(Vector3.up * 500f);
-		}
 		
-		if (Input.anyKey)
+		if (Input.anyKey && canMove)
 			Move();
 	}
 

@@ -298,6 +298,7 @@
           <e p="Character.cs" t="Include" />
           <e p="EnemyAI.cs" t="Include" />
           <e p="Gun.cs" t="Include" />
+          <e p="JumpCube.cs" t="Include" />
           <e p="LampLightCollision.cs" t="Include" />
           <e p="LampSwitchTrigger.cs" t="Include" />
           <e p="LightBullet.cs" t="Include" />
