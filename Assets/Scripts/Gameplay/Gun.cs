@@ -11,6 +11,11 @@ public class Gun : MonoBehaviour {
     public float time;
     public bool shouldExpand;
 
+    void Start()
+    {
+        bulletOrigin = GameObject.Find("BulletOrigin");
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -21,7 +26,6 @@ public class Gun : MonoBehaviour {
 
     void Shoot()
     {
-//        GameObject o = GameObject.Find("BulletOrigin");
         GameObject clone = Instantiate(lightPrefab, bulletOrigin.transform.position, this.transform.rotation);
 
         Player player = GetComponentInParent<Player>();
@@ -30,8 +34,6 @@ public class Gun : MonoBehaviour {
         if(shouldExpand)
             StartCoroutine(Expand(clone));
 
-
-        GetComponent<PlayerController>().shooting = true;
         Debug.Log(player.currentHealth);
     }
 

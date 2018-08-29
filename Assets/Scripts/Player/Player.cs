@@ -16,13 +16,13 @@ public class Player : Character {
 		}
 	}
 
-	private void OnCollisionStay(Collision other) {
-		if (other.gameObject.tag.Equals("Enemy")) {
-			if (other.gameObject.GetComponent<Animator>().GetBool("attack"))
-				currentHealth -= 0.03f;
-			print("Health : " + currentHealth);
-		}
-	}
+	//private void OnCollisionStay(Collision other) {
+	//	if (other.gameObject.tag.Equals("Enemy")) {
+	//		if (other.gameObject.GetComponent<Animator>().GetBool("attack"))
+	//			currentHealth -= 0.03f;
+	//		print("Health : " + currentHealth);
+	//	}
+	//}
 
 	private void Start() {
 		currentHealth = baseHealth;
@@ -32,8 +32,10 @@ public class Player : Character {
 		UpdateColor();
 	}
 
-	private void UpdateColor() {
-		if (currentHealth <= 0) {
+	private void UpdateColor()
+    {
+		if (currentHealth <= 0)
+        {
 			print("Player is dead.");
 			Death();
 		} else {
