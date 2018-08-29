@@ -7,7 +7,9 @@ using UnityEngineInternal;
 
 public class PlayerController : MonoBehaviour {
 
-	public float moveSpeed = 4f;
+	public float walkingSpeed = 6f;
+	public float runningSpeed = 9.5f;
+	private float moveSpeed;
 	public bool canMove = true;
 	
 	private Vector3 forward, right;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour {
 		forward.y = 0;
 		forward = Vector3.Normalize(forward);
 		right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+		moveSpeed = walkingSpeed;
 	}
 
 	private void Update() {
@@ -41,13 +44,13 @@ public class PlayerController : MonoBehaviour {
 		// if shift is on hold, the player runs
 		if (Input.GetKey(KeyCode.LeftShift)) {
 			running = true;
-			moveSpeed = 12f;
+			moveSpeed = runningSpeed;
 		}
 
 		// if shift is not on hold anymore, player should stop running
 		if (Input.GetKeyUp(KeyCode.LeftShift)) {
 			running = false;
-			moveSpeed = 6f;
+			moveSpeed = walkingSpeed;
 		}
 		
 		// checking if the player should move
