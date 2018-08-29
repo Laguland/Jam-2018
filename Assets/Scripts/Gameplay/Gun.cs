@@ -34,6 +34,7 @@ public class Gun : MonoBehaviour {
         if(shouldExpand)
             StartCoroutine(Expand(clone));
 
+        GetComponent<PlayerController>().shooting = true;
         Debug.Log(player.currentHealth);
     }
 
