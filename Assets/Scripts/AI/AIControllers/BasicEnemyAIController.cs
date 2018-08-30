@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,83 +10,47 @@ public class BasicEnemyAIController : Character {
 	NavMeshAgent agent;
 
 	private Animator anim;
+	private float dmgPerSecond = 2f;
+
+	private bool attacking;
 
 	// Use this for initialization
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player");
 		agent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
+		base.currentHealth = base.baseHealth;
 	}
 
-	// Update is called once per frame
-	void Update() {
-		//agent.SetDestination(player.transform.position);
-		//MoveToPlayer();
+	public void StartAttack() {
+		attacking = true;
+		StartCoroutine("Attack");
 	}
 
-    public void StartAttack()
-    {
+	public void StopAttack() {
+		attacking = false;
+	}
 
-    }
+	private IEnumerator Attack() {
+		yield return new WaitForSeconds(2f);
+		if (attacking) {
+			player.GetComponent<Player>().GetDamage(10f);
+			StartCoroutine("Attack");
+		}
+	}
+	
+	public GameObject GetPlayer() {
+		return player;
+	}
 
-    public void StopAttack()
-    {
+	public override void GetDamage(float amount) {
+		base.currentHealth -= amount;
+		if (currentHealth <= 0)
+			Death();
+	}
 
-    }
-
-    void Attack()
-    {
-
-    }
-	// Find player direction
-	//Vector3 DirectionToPlayer() {
-	//	Vector3 playerPosition = player.transform.position;
-	//	Vector3 agentPosition = this.transform.position;
-
-	//	Vector3 playerDirection = playerPosition - agentPosition;
-	//	playerDirection.Normalize();
-
-	//	return playerDirection;
-	//}
-
-    // Move to target location
- //   public void MoveToTargetPoint(Vector3 targetPoint)
- //   {
- //       agent.SetDestination(targetPoint);
- //   }
-
-	//// Move To Player
-	//void MoveToPlayer() {
-	//	Vector3 moveVector = DirectionToPlayer() * moveSpeed * Time.deltaTime;
-
-	//	this.transform.LookAt(player.transform);
-	//	this.transform.position += moveVector;
-	//}
-
-	//private void OnCollisionEnter(Collision other) {
-	//	if (other.transform.tag.Equals("Player")) {
-	//		anim.SetBool("attack", true);
-	//		anim.SetBool("walking", false);
-	//	}
-	//}
-
-	//private void OnCollisionStay(Collision other) {
-	//	if (other.transform.tag.Equals("Player")) {
-	//		if (!anim.GetBool("attack"))
-	//			anim.SetBool("attack", true);
-	//	}
-	//}
-
-	//private void OnCollisionExit(Collision other) {
-	//	if (other.transform.tag.Equals("Player"))
-	//		anim.SetBool("attack", false);
-	//		anim.SetBool("walking", true);
-	//}
-
-    public GameObject GetPlayer()
-    {
-        return player;
-    }
-
-	override public void Death() { }
+	public override void Death() {
+		player.GetComponent<LightProgress>().DecreaseEnemyCounter();
+		Destroy(gameObject);
+	}
 }

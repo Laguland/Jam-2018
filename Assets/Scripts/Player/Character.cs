@@ -8,5 +8,6 @@ public abstract class Character : MonoBehaviour {
 	public float currentHealth;
 	protected float moveSpeed;
 
+	public abstract void GetDamage(float amount);
     public abstract void Death();
 }

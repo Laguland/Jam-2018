@@ -13,16 +13,11 @@ public class LightBullet : MonoBehaviour {
     }
 
     // collision check
-    void OnCollisionEnter(Collision col) {
-        if (col.gameObject.CompareTag("Enemy")) {
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.CompareTag("Enemy")) {
             Debug.Log("HIT ENEMY");
-            EnemyHit(col.gameObject);
+            other.gameObject.GetComponent<BasicEnemyAIController>().GetDamage(50f);
             Destroy(gameObject);
         }
-    }
-
-    // enemy hit logic
-    void EnemyHit(GameObject enemy) {
-        Destroy(enemy);
     }
 }

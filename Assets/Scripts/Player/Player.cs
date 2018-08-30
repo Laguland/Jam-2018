@@ -3,26 +3,13 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Experimental.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class Player : Character {
 
 	public Light playerLight;
 	public bool isHoldingALightSource;
 	public string lightColor;
-
-	private void OnCollisionEnter(Collision other) {
-		if (other.transform.tag == "Enemy") {
-			currentHealth -= 10f;
-		}
-	}
-
-	//private void OnCollisionStay(Collision other) {
-	//	if (other.gameObject.tag.Equals("Enemy")) {
-	//		if (other.gameObject.GetComponent<Animator>().GetBool("attack"))
-	//			currentHealth -= 0.03f;
-	//		print("Health : " + currentHealth);
-	//	}
-	//}
 
 	private void Start() {
 		currentHealth = baseHealth;
@@ -61,7 +48,22 @@ public class Player : Character {
 		}
 	}
 
-	public override void Death() { }
+	public override void GetDamage(float amount) {
+		base.currentHealth -= amount;
+		print("Health : " + currentHealth);
+	}
+
+	public override void Death() {
+		GetComponent<Animator>().SetBool("dead", true);
+		GetComponent<PlayerController>().movementAllowed = false;
+		StartCoroutine("GameOver");
+	}
+
+	private IEnumerator GameOver() {
+		yield return new WaitForSeconds(6f);
+		SceneManager.LoadSceneAsync("GameOver");
+	}
+	
 }
 
 

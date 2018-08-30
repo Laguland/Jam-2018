@@ -29,6 +29,7 @@ public class Attack : FSMBase_BaseEnemy
     {
         base.OnStateExit(animator, stateInfo, layerIndex);
         navAgent.isStopped = false;
+        NPC.GetComponent<BasicEnemyAIController>().StopAttack();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here

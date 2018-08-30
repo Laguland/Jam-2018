@@ -30,6 +30,7 @@ public class LampSwitchTrigger : MonoBehaviour {
                     pointLight.SetActive(true);
                     lampLightTrigger.SetActive(true);
                     player.isHoldingALightSource = false; // light source used
+                    other.gameObject.GetComponent<LightProgress>().DecreaseLampCounter();
                 }
             }
         }

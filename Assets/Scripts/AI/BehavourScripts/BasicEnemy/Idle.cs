@@ -24,7 +24,7 @@ public class Idle : FSMBase_BaseEnemy
         else
         {
             WaitTime = Random.Range(randomWaitTimeMin,randomWaitTimeMax);
-            Debug.Log("Wait Time: " + NPC.name + ", " + WaitTime);
+//            Debug.Log("Wait Time: " + NPC.name + ", " + WaitTime);
         }
         timer = 0.0f;
     }

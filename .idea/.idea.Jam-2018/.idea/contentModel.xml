@@ -293,18 +293,38 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="CameraController.cs" t="Include" />
-          <e p="CameraLook.cs" t="Include" />
-          <e p="Character.cs" t="Include" />
-          <e p="EnemyAI.cs" t="Include" />
-          <e p="Gun.cs" t="Include" />
-          <e p="JumpCube.cs" t="Include" />
-          <e p="LampLightCollision.cs" t="Include" />
-          <e p="LampSwitchTrigger.cs" t="Include" />
-          <e p="LightBullet.cs" t="Include" />
-          <e p="LightSource.cs" t="Include" />
-          <e p="Player.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
+          <e p="AI" t="Include">
+            <e p="AIControllers" t="Include">
+              <e p="BasicEnemyAIController.cs" t="Include" />
+            </e>
+            <e p="BehavourScripts" t="Include">
+              <e p="BasicEnemy" t="Include">
+                <e p="Attack.cs" t="Include" />
+                <e p="Chase.cs" t="Include" />
+                <e p="Idle.cs" t="Include" />
+                <e p="Walk.cs" t="Include" />
+              </e>
+              <e p="FSMBaseClasses" t="Include">
+                <e p="FSMBase_BaseEnemy.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Gameplay" t="Include">
+            <e p="Gun.cs" t="Include" />
+            <e p="JumpCube.cs" t="Include" />
+            <e p="LampLightCollision.cs" t="Include" />
+            <e p="LampSwitchTrigger.cs" t="Include" />
+            <e p="LightBullet.cs" t="Include" />
+            <e p="LightProgress.cs" t="Include" />
+            <e p="LightSource.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="CameraLook.cs" t="Include" />
+            <e p="Character.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Jam-2018.sln" t="IncludeFlat" />

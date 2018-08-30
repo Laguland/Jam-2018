@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23172802985367882}
   - component: {fileID: 64058289651527306}
   m_Layer: 0
-  m_Name: Cube.003
+  m_Name: Rock 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float runningSpeed = 9.5f;
 	private float moveSpeed;
 	public bool canMove = true;
+	public bool movementAllowed = true;
 	
 	private Vector3 forward, right;
 	public Animator anim;
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour {
 
 	private void Update() {
 
+		if (!movementAllowed)
+			return;
+		
 		LootAtMouse();
 
 		if (shooting)
