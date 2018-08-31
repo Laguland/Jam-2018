@@ -7,11 +7,13 @@ public class Walk : FSMBase_BaseEnemy
 {
     public float minDistanceToTheTarget = 2.0f;
     public float randomPointRange = 10.0f;
+    private float timer;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateEnter(animator, stateInfo, layerIndex);
+        timer = 0f;
 
         if (RandomPoint(NPC.transform.position, randomPointRange, out targetPoint))
         {
@@ -30,6 +32,11 @@ public class Walk : FSMBase_BaseEnemy
     {
         base.OnStateUpdate(animator, stateInfo, layerIndex);
 
+        timer += Time.deltaTime;
+        if(timer > 10f)
+        {
+            animator.SetBool("walking", false);
+        }
         Debug.DrawRay(targetPoint, Vector3.up, Color.red, 10.0f);
         if (Vector3.Distance(NPC.transform.position,targetPoint) < minDistanceToTheTarget)
         {

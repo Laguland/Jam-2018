@@ -10,6 +10,7 @@ public class HUDManager : MonoBehaviour {
     public Text playerHP;
     public GameObject GameOver;
     public GameObject Player;
+    public GameObject pausePanel;
     string win = "You have won!";
     string gameOver = "Game Over!";
     int monsterCount = 0;
@@ -20,10 +21,23 @@ public class HUDManager : MonoBehaviour {
         GameObject[] aMonster = GameObject.FindGameObjectsWithTag("Enemy");
         monsterCount = aMonster.Length;
         label_EnCount.text = monsterCount.ToString();
+        PauseGame();
     }
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            if(pausePanel.active)
+            {
+                ContinueGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
         playerHP.text = Player.GetComponent<Player>().currentHealth.ToString();
 
         if(monsterCount == 0)
@@ -42,5 +56,19 @@ public class HUDManager : MonoBehaviour {
     {
         --monsterCount;
         label_EnCount.text = monsterCount.ToString();
+    }
+
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        Player.GetComponent<PlayerController>().enabled = false;
+        pausePanel.SetActive(true);
+    }
+
+    void ContinueGame()
+    {
+        Time.timeScale = 1;
+        Player.GetComponent<PlayerController>().enabled = true;
+        pausePanel.SetActive(false);
     }
 }
