@@ -10,6 +10,11 @@ public class LightBullet : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         this.transform.position += transform.rotation * Vector3.forward * speed * Time.deltaTime;
+
+        if(transform.position.x == 1000 || transform.position.y == 1000 || transform.position.z == 1000)
+        {
+            Destroy(this);
+        }
     }
 
     // collision check

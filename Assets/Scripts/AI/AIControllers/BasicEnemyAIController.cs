@@ -8,7 +8,7 @@ public class BasicEnemyAIController : Character {
 
 	GameObject player;
 	NavMeshAgent agent;
-
+    GameObject HUD;
 	private Animator anim;
 	private float dmgPerSecond = 2f;
 
@@ -20,6 +20,7 @@ public class BasicEnemyAIController : Character {
 		agent = GetComponent<NavMeshAgent>();
 		anim = GetComponent<Animator>();
 		base.currentHealth = base.baseHealth;
+        HUD = GameObject.Find("HUDManager");
 	}
 
 	public void StartAttack() {
@@ -32,12 +33,13 @@ public class BasicEnemyAIController : Character {
 	}
 
 	private IEnumerator Attack() {
-		yield return new WaitForSeconds(2f);
-		if (attacking) {
-			player.GetComponent<Player>().GetDamage(10f);
-			StartCoroutine("Attack");
-		}
-	}
+        yield return new WaitForSeconds(1f);
+        if (attacking)
+        {
+            player.GetComponent<Player>().GetDamage(10f);
+            StartCoroutine("Attack");
+        }
+    }
 	
 	public GameObject GetPlayer() {
 		return player;
@@ -45,12 +47,18 @@ public class BasicEnemyAIController : Character {
 
 	public override void GetDamage(float amount) {
 		base.currentHealth -= amount;
-		if (currentHealth <= 0)
-			Death();
+        anim.SetFloat("AgentLife", currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            Death();
+        }
 	}
 
 	public override void Death() {
-		player.GetComponent<LightProgress>().DecreaseEnemyCounter();
-		Destroy(gameObject);
-	}
+        player.GetComponent<LightProgress>().DecreaseEnemyCounter();
+        this.GetComponent<CapsuleCollider>().enabled = false;
+        this.GetComponent<MeshCollider>().enabled = false;
+        HUD.GetComponent<HUDManager>().UpdateMonsterCount();
+    }
 }

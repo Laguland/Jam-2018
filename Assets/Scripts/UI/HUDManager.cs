@@ -5,16 +5,42 @@ using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour {
 
-    // get labels
     public Text label_EnCount;
-    public Text label_LampCount;
+    public Text label_GameOverMassage;
+    public Text playerHP;
+    public GameObject GameOver;
+    public GameObject Player;
+    string win = "You have won!";
+    string gameOver = "Game Over!";
+    int monsterCount = 0;
+
+    void Start()
+    {
+        GameOver.SetActive(false);
+        GameObject[] aMonster = GameObject.FindGameObjectsWithTag("Enemy");
+        monsterCount = aMonster.Length;
+        label_EnCount.text = monsterCount.ToString();
+    }
 
     void Update()
     {
-        GameObject[] aMonster = GameObject.FindGameObjectsWithTag("Enemy");
-        GameObject[] aLamp = GameObject.FindGameObjectsWithTag("Lamp");
+        playerHP.text = Player.GetComponent<Player>().currentHealth.ToString();
 
-        label_EnCount.text = aMonster.Length.ToString();
-        label_LampCount.text = aLamp.Length.ToString();
+        if(monsterCount == 0)
+        {
+            label_GameOverMassage.text = win;
+            GameOver.SetActive(true);
+        }
+        if(Player.GetComponent<Player>().currentHealth <= 0)
+        {
+            label_GameOverMassage.text = gameOver;
+            GameOver.SetActive(true);
+        }
+    }
+
+    public void UpdateMonsterCount()
+    {
+        --monsterCount;
+        label_EnCount.text = monsterCount.ToString();
     }
 }

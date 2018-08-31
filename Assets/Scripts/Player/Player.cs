@@ -56,13 +56,14 @@ public class Player : Character {
 	public override void Death() {
 		GetComponent<Animator>().SetBool("dead", true);
 		GetComponent<PlayerController>().movementAllowed = false;
-		StartCoroutine("GameOver");
+		//StartCoroutine("GameOver");
 	}
 
-	private IEnumerator GameOver() {
-		yield return new WaitForSeconds(6f);
-		SceneManager.LoadSceneAsync("GameOver");
-	}
+    // not needed
+	//private IEnumerator GameOver() {
+		//yield return new WaitForSeconds(6f);
+		//SceneManager.LoadSceneAsync("GameOver");
+	//}
 	
 }
 
